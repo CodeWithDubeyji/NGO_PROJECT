@@ -15,7 +15,7 @@ const NavItem = ({ title, items }) => {
 
   return (
     <div
-      className='realtive'
+      className='relative'
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}
     >
