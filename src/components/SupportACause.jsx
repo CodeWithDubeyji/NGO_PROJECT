@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/autoplay';
-import { motion } from 'framer-motion';
+import React, { useState } from 'react'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Autoplay } from 'swiper/modules'
+import 'swiper/css'
+import 'swiper/css/autoplay'
+import { motion } from 'framer-motion'
 
 const stories = [
   {
@@ -42,12 +42,12 @@ const stories = [
       'https://www.smilefoundationindia.org/wp-content/uploads/2023/02/1-WorldHealthDay-YouTube-1.png',
     DonateUrl: 'https://www.youtube.com/embed/5KLyjoH8uew?si=rFoOTeyBK_PKPR5R'
   }
-];
+]
 
 const SupportACause = () => {
   return (
     <div className='py-10 text-center'>
-      <h2 className='text-[28px] md:text-[36px] lg:text-[42px] font-bold mb-10 bebas-neue-regular'>
+      <h2 className='text-[28px] md:text-[36px] lg:text-[42px] font-bold mb-2 bebas-neue-regular'>
         Support A Cause
       </h2>
 
@@ -63,19 +63,19 @@ const SupportACause = () => {
         modules={[Autoplay]}
         className='w-[75%] mx-auto'
       >
-        {stories.map((story) => (
+        {stories.map(story => (
           <SwiperSlide key={story.id}>
             <HoverCard story={story} />
           </SwiperSlide>
         ))}
       </Swiper>
     </div>
-  );
-};
+  )
+}
 
 // Separate HoverCard Component to handle animations properly
 const HoverCard = ({ story }) => {
-  const [isHovered, setIsHovered] = useState(false);
+  const [isHovered, setIsHovered] = useState(false)
 
   return (
     <div
@@ -115,7 +115,7 @@ const HoverCard = ({ story }) => {
         Know more &gt;
       </a>
     </div>
-  );
-};
+  )
+}
 
-export default SupportACause;
+export default SupportACause

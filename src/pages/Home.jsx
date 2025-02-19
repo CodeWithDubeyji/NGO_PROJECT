@@ -5,6 +5,8 @@ import AchievementGoals from "../components/AchievementGoals"
 import Stories from "../components/Stories"
 import SupportACause from "../components/SupportACause"
 import Partners from "../components/Partners"
+import Awards from "../components/Awards"
+import EmpanelmentAndAccreditations from "../components/EmpanelmentAndAccreditations"
 
 const Home = () => {
   return (
@@ -16,6 +18,8 @@ const Home = () => {
       <Stories />
       <SupportACause />
       <Partners /> 
+      <Awards />
+      <EmpanelmentAndAccreditations />
     </div>
   )
 }
