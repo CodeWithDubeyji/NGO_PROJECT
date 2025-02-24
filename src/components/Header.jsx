@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { ChevronDown, Menu, Search, X } from 'lucide-react'
+import { Link } from 'react-router-dom'
 
 const NavItem = ({ title, items }) => {
   const [isOpen, setIsOpen] = useState(false)
@@ -26,13 +27,13 @@ const NavItem = ({ title, items }) => {
       {items && isOpen && (
         <div className='absolute left-0 top-full z-50 min-w-[200px] rounded-md bg-white p-2 shadow-lg'>
           {items.map((item, index) => (
-            <a
+            <Link
               key={index}
-              href={item.href}
+              to={item.href}
               className='block rounded-sm px-4 py-2 text-sm text-gray-600 hover:bg-gray-100'
             >
               {item.title}
-            </a>
+            </Link>
           ))}
         </div>
       )}
@@ -104,9 +105,13 @@ export default function Navbar () {
     {
       title: 'ABOUT US',
       items: [
-        { title: 'Our Story', href: '#' },
-        { title: 'Mission & Vision', href: '#' },
-        { title: 'Team', href: '#' }
+        { title: 'About Us', href: '/our-story' },
+        { title: 'People Behind Smile', href: '#' },
+        { title: 'Impact', href: '#' },
+        { title: 'Reach & Presence', href: '#' },
+        { title: 'Civic Driven Changes', href: '#' },
+        { title: 'Smilestones', href: '#' },
+        { title: 'Good Governance', href: '#' },
       ]
     },
     {
