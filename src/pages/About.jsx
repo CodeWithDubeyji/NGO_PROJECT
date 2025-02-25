@@ -12,7 +12,7 @@ const About = () => {
           className='absolute inset-0 w-full h-full object-cover'
         />
         <div className='relative w-full h-screen flex justify-center items-center bg-black bg-opacity-35 p-4 rounded-lg'>
-          <h2 className='text-[30px] md:text-[42px] lg:text-[70px] font-light text-white'>
+          <h2 className='text-[30px] md:text-[42px] lg:text-[70px] font-light text-white bebas-neue-regular'>
             Real Work. Real Change.
           </h2>
         </div>
@@ -520,9 +520,13 @@ const About = () => {
               </p>
             </div>
           </div>
-          <Link to={'#'} className='mx-auto underline underline-offset-4 raleway-400 tracking-wider antialiased z-20 leading-7 hover:text-[#bad596]'>View All</Link>
+          <Link
+            to={'#'}
+            className='mx-auto underline underline-offset-4 raleway-400 tracking-wider antialiased z-20 leading-7 hover:text-[#bad596]'
+          >
+            View All
+          </Link>
         </div>
-
       </div>
     </div>
   )

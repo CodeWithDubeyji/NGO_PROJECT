@@ -4,15 +4,6 @@ import { Link } from 'react-router-dom'
 
 const NavItem = ({ title, items }) => {
   const [isOpen, setIsOpen] = useState(false)
-  const [hasScrolled, setHasScrolled] = useState(false)
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setHasScrolled(window.scrollY > 10)
-    }
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
 
   return (
     <div
@@ -24,16 +15,38 @@ const NavItem = ({ title, items }) => {
         {title}
         {items && <ChevronDown className='h-3 w-3 ml-1' />}
       </button>
+
       {items && isOpen && (
         <div className='absolute left-0 top-full z-50 min-w-[200px] rounded-md bg-white p-2 shadow-lg'>
           {items.map((item, index) => (
-            <Link
-              key={index}
-              to={item.href}
-              className='block rounded-sm px-4 py-2 text-sm text-gray-600 hover:bg-gray-100'
-            >
-              {item.title}
-            </Link>
+            <div key={index} className='relative group'>
+              {item.items ? (
+                <>
+                  <button className='flex justify-between w-full px-4 py-2 text-sm text-gray-600 hover:bg-gray-100'>
+                    {item.title}
+                    <ChevronDown className='h-3 w-3 ml-1 transform group-hover:rotate-180' />
+                  </button>
+                  <div className='absolute left-full top-0 hidden w-[200px] rounded-md bg-white p-2 shadow-lg group-hover:block'>
+                    {item.items.map((subItem, subIndex) => (
+                      <Link
+                        key={subIndex}
+                        to={subItem.href}
+                        className='block px-4 py-2 text-sm text-gray-600 hover:bg-gray-100'
+                      >
+                        {subItem.title}
+                      </Link>
+                    ))}
+                  </div>
+                </>
+              ) : (
+                <Link
+                  to={item.href}
+                  className='block px-4 py-2 text-sm text-gray-600 hover:bg-gray-100'
+                >
+                  {item.title}
+                </Link>
+              )}
+            </div>
           ))}
         </div>
       )}
@@ -106,12 +119,20 @@ export default function Navbar () {
       title: 'ABOUT US',
       items: [
         { title: 'About Us', href: '/our-story' },
-        { title: 'People Behind Smile', href: '#' },
-        { title: 'Impact', href: '#' },
+        {
+          title: 'People Behind Smile',
+          href: '#',
+          items: [
+            { title: 'Leadership', href: '#' },
+            { title: 'Mentors', href: '#' },
+            { title: 'Our People', href: '#' },
+          ]
+        },
+        { title: 'Impact', href: '/impact' },
         { title: 'Reach & Presence', href: '#' },
         { title: 'Civic Driven Changes', href: '#' },
         { title: 'Smilestones', href: '#' },
-        { title: 'Good Governance', href: '#' },
+        { title: 'Good Governance', href: '#' }
       ]
     },
     {
