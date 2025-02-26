@@ -12,6 +12,17 @@
     font-weight: 400;
     font-style: normal;
   }
+
+  @keyframes customPing {
+    75%, 100% {
+      transform: scale(2);
+      opacity: 0;
+    }
+  }
+  
+  .animate-ping {
+    animation: customPing 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
   
 @tailwind base;
 @tailwind components;

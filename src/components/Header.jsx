@@ -97,7 +97,7 @@ const MobileMenu = ({ isOpen, onClose, navItems }) => {
       <div className='fixed inset-0 bg-black/50' onClick={onClose} />
       <div className='fixed right-0 top-0 h-full w-[300px] bg-white p-6 shadow-xl'>
         <div className='mb-8 flex items-center justify-between'>
-          <img src={`public/logo.webp`} alt='Logo' className='h-8 w-auto' />
+          <img src={`logo.webp`} alt='Logo' className='h-8 w-auto' />
           <button onClick={onClose} className='text-gray-500'>
             <X className='h-6 w-6' />
           </button>
@@ -129,9 +129,9 @@ export default function Navbar () {
           ]
         },
         { title: 'Impact', href: '/impact' },
-        { title: 'Reach & Presence', href: '#' },
-        { title: 'Civic Driven Changes', href: '#' },
-        { title: 'Smilestones', href: '#' },
+        { title: 'Reach & Presence', href: '/reach-presence' },
+        { title: 'Civic Driven Changes', href: '/civic-driven-changes' },
+        { title: 'Smilestones', href: '/smilestones' },
         { title: 'Good Governance', href: '#' }
       ]
     },
