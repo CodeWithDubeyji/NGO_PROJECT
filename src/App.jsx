@@ -9,6 +9,8 @@ import Impact from './pages/Impact'
 import ReachAndPresence from './pages/Reach'
 import CivicChanges from './pages/CivicChanges'
 import Smilestones from './pages/Smilestones'
+import GoodGovernence from './pages/GoodGovernance'
+import Faq from './pages/Faq'
 
 const App = () => {
   return (
@@ -21,7 +23,9 @@ const App = () => {
           <Route path='/reach-presence' element={<ReachAndPresence />} />
           <Route path='/civic-driven-changes' element={<CivicChanges />} />
           <Route path='/smilestones' element={<Smilestones />} />
-          <Route path='/contact' element={<Contact />} />
+          <Route path='/good-governance' element={<GoodGovernence />} />
+          <Route path='/contact-us' element={<Contact />} />
+          <Route path='/faq' element={<Faq />} />
           <Route path='/community' element={<Community />}/>
         </Route>
       </Routes>

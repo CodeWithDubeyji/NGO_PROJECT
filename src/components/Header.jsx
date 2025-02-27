@@ -132,7 +132,7 @@ export default function Navbar () {
         { title: 'Reach & Presence', href: '/reach-presence' },
         { title: 'Civic Driven Changes', href: '/civic-driven-changes' },
         { title: 'Smilestones', href: '/smilestones' },
-        { title: 'Good Governance', href: '#' }
+        { title: 'Good Governance', href: '/good-governance' }
       ]
     },
     {
@@ -160,7 +160,13 @@ export default function Navbar () {
     },
     { title: 'MEDIA CENTRE' },
     { title: 'RESOURCE CENTER' },
-    { title: 'CONTACT US' }
+    {
+      title: 'Contact us',
+      items: [
+        { title: 'Get In Touch', href: '/contact-us' },
+        { title: 'Faq', href: '/faq' },
+      ]
+    },
   ]
 
   return (
