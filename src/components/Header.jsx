@@ -31,6 +31,7 @@ const NavItem = ({ title, items }) => {
                       <Link
                         key={subIndex}
                         to={subItem.href}
+                        target={subItem.target}
                         className='block px-4 py-2 text-sm text-gray-600 hover:bg-gray-100'
                       >
                         {subItem.title}
@@ -42,6 +43,7 @@ const NavItem = ({ title, items }) => {
                 <Link
                   to={item.href}
                   className='block px-4 py-2 text-sm text-gray-600 hover:bg-gray-100'
+                  target={item.target}
                 >
                   {item.title}
                 </Link>
@@ -78,6 +80,7 @@ const MobileNavItem = ({ title, items }) => {
             <a
               key={index}
               href={item.href}
+              target={item.target}
               className='block py-2 text-sm text-gray-600'
             >
               {item.title}
@@ -138,16 +141,31 @@ export default function Navbar () {
     {
       title: 'OUR WORK',
       items: [
-        { title: 'Education', href: '#' },
-        { title: 'Healthcare', href: '#' },
-        { title: 'Livelihood', href: '#' }
+        { title: 'Education', href: '/education' },
+        { title: 'Healthcare', href: '/healthcare' },
+        { title: 'Livelihood', href: '/livelihood' },
+        { title: 'Women Empowerment', href: '/women-empowerment' },
+        { title: 'Disaster Response', href: '/disaster-response' },
+        { title: 'Empowering Grassroots', href: '/empowering-grassroots' },
+        {
+          title: 'Privileged Children',
+          href: '#',
+          items: [
+            { title: 'Child For Child', href: '/child-for-child' },
+            { title: 'Sciffy', href: 'https://siffcy.org/', target: "_blank" },
+          ]
+        },
       ]
     },
     {
       title: 'CAMPAIGNS',
       items: [
-        { title: 'Current Campaigns', href: '#' },
-        { title: 'Past Campaigns', href: '#' }
+        { title: 'Siksha Na Ruke', href: 'https://donate.smilefoundationindia.org/donate-for-education/', target: "_blank"},
+        { title: 'Health Cannot Wait', href: 'https://donate.smilefoundationindia.org/donate-for-healthcare/', target: "_blank" },
+        { title: 'She Can Fly', href: 'https://donate.smilefoundationindia.org/donate-for-girl-child', target: "_blank" },
+        { title: 'Swabhiman', href: 'https://donate.smilefoundationindia.org/women-empowerment/', target: "_blank" },
+        { title: 'Tayaari Kal Ki', href: 'https://donate.smilefoundationindia.org/donate-for-livelihood/', target: "_blank" },
+        { title: 'Disaster Relief', href: 'https://donate.smilefoundationindia.org/disaster-relief/', target: "_blank" },
       ]
     },
     {
