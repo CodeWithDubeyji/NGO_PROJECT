@@ -4,7 +4,6 @@ import { Autoplay } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/autoplay'
 import { motion } from 'framer-motion'
-import { desc, title } from 'framer-motion/client'
 
 const Civichanges = () => {
   const stories = [

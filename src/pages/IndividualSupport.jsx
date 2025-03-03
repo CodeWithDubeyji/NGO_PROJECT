@@ -1,8 +1,51 @@
 import React from 'react'
 import { useState } from 'react'
-import { X, ArrowRight } from 'lucide-react'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Autoplay } from 'swiper/modules'
+import 'swiper/css'
+import 'swiper/css/autoplay'
+import { motion } from 'framer-motion'
 
 import SupportACause from '../components/Home/SupportACause'
+const HoverCard = ({ story }) => {
+  const [isHovered, setIsHovered] = useState(false)
+
+  return (
+    <div
+      className='relative group cursor-pointer text-left overflow-hidden rounded-xl'
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <div className='relative w-full h-[350px]'>
+        {/* Dark Overlay */}
+        <div className='absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent z-10' />
+
+        {/* Image with hover animation */}
+        <motion.img
+          src={story.thumbnail}
+          alt='Story Thumbnail'
+          className='w-full h-full object-cover'
+          animate={{ scale: isHovered ? 1.05 : 1 }}
+          transition={{ duration: 0.3, ease: 'easeOut' }}
+        />
+
+        {/* Text positioned over the overlay */}
+        <motion.div
+          className='absolute left-6 bottom-8 z-20 max-w-[80%]'
+          animate={{ y: isHovered ? 50 : 0, opacity: isHovered ? 0 : 1 }}
+          transition={{ duration: 0.3, ease: 'easeOut' }}
+        >
+          <h3 className='font-bold leading-tight tracking-wide bebas-neue-regular text-[18px] md:text-[35px] lg:text-[35px] text-white'>
+            {story.title}
+          </h3>
+          <p className='text-[14px] raleway-400 tracking-widest text-white/90 mt-1'>
+            {story.desc}
+          </p>
+        </motion.div>
+      </div>
+    </div>
+  )
+}
 
 const IndividualSupport = () => {
   const events = [
@@ -30,11 +73,42 @@ const IndividualSupport = () => {
     }
   ]
 
+  const stories = [
+    {
+      id: 1,
+      thumbnail: '/RAMP.png',
+      title: 'RAMP for champs',
+      desc: `India's biggest Charity Fashion Walk`,
+      url: '#'
+    },
+    {
+      id: 2,
+      thumbnail: '/Kohli.png',
+      title: 'Charity gala dinner',
+      desc: 'Exclusive high-end fundraisers celebrating responsible lu',
+      url: '#'
+    },
+    {
+      id: 3,
+      thumbnail: '/cOOK-FOR-SMILE.png',
+      title: 'Cook for smile',
+      desc: 'Top corporate leaders cook for a cause ',
+      url: '#'
+    },
+    {
+      id: 4,
+      thumbnail: '/RUN-FOR-SMILE.png',
+      title: 'Run for smile',
+      desc: 'Join Team Smile at the biggest marathon events of India',
+      url: '#'
+    }
+  ]
+
   return (
     <>
       <div className='relative w-full h-screen flex items-center justify-center'>
         <img
-          src='/ChildForChild/1.jpg'
+          src='/Indi_1.webp'
           alt='About Section'
           className='absolute inset-0 w-full h-full object-cover'
         />
@@ -46,89 +120,27 @@ const IndividualSupport = () => {
       </div>
       <div className='text-center max-w-6xl mx-auto mb-10 raleway-400 tracking-normal py-[60px]'>
         <p className='text-lg text-gray-800'>
-          Children are the future of a nation. They are the best change agents,
-          be it in the family or the community in which they live. It is
-          therefore crucial to help the children, catch them young and inculcate
-          in them feelings of empathy and conscience so that they grow up as
-          responsible individuals. Sensing this need, Smile Foundation came up
-          with Child For Child (CFC) programme in 2006. Sensitization of
-          privileged children and their parents, towards the existing
-          inequalities around them, is an important objective of Child For
-          Child.
+          Smile Foundation is a people-driven organization – right from the
+          people who started it with a vision, to the people who work for us to
+          bring change at the grassroots, to the people who support our work,
+          and most importantly the people who serve on the ground through our
+          work.
         </p>
         <p className='text-lg text-gray-800 my-4'>
-          Privileged children are sensitized about the deprivation and pain
-          endured by the underprivileged kids. Child For Child seeks to
-          inculcate a conscience and value system in the children so that they
-          grow up to become responsible citizens and change makers. Before their
-          minds are set with age, the Child For Child programme tries to make
-          them count their own blessings and understand the plight of less
-          privileged ones. Once they start realizing the worth of the privileges
-          they are born with, they automatically turn their thoughts towards
-          positivity and develop the right outlook. This eventually helps them
-          develop into not only successful but responsible individuals in life.
-          They grow up to become significant change makers, who contribute
-          positively to the society.
+          Committed , responsible people who are passionate to make a difference
+          to the world around them are the backbone of Smile Foundation. We have
+          always taken our role as that of a catalyst in the process of bringing
+          change, but ultimately if we are aiming real and sustainable
+          development, change has to be driven by people themselves.
         </p>
 
         <p className='text-lg text-gray-800 my-4'>
-          Under Child For Child programme, Smile Foundation visits various
-          schools and conducts engaging sessions for the young minds. It
-          sensitizes children towards various causes and let them realize their
-          privileged status.
+          Over the years, Smile Foundation has received the love, support and
+          trust of millions of individuals, who have enabled us to create high
+          impact programmes and benefit over 1.5 million people every year. We
+          always take pride in making our supporters active partners in our
+          programmes either than just channelize their resources to do good.
         </p>
-      </div>
-
-      <div className='w-full flex flex-col items-center justify-center raleway-400 relative bg-[#f5f5f5] py-20'>
-        <div className='w-[75%] mx-auto flex flex-col justify-center gap-16'>
-          <h1 className='text-[30px] md:text-[42px] lg:text-[2.5rem] font-semibold bebas-neue-regular tracking-wide text-center'>
-            What We Did Last Year
-          </h1>
-          <div className='flex justify-center items-center gap-16 flex-wrap lg:flex-row lg:ml-20'>
-            <div className='flex-1 flex items-center justify-center gap-4'>
-              <img
-                src='/ChildForChild/lastyear_1.png'
-                alt=''
-                className='w-[100px]'
-              />
-              <p className='font-bold text-justify'>
-                <span className='text-3xl font-extrabold text-[#c0adcc] bebas-neue-regular'>
-                  17,00,000 CHILDREN SENSITIZED
-                </span>
-                <br />
-                Along With Their Teacher and Families
-              </p>
-            </div>
-            <div className='flex-1 flex items-center justify-center  gap-4'>
-              <img
-                src='/ChildForChild/lastyear_2.png'
-                alt=''
-                className='w-[100px]'
-              />
-              <p className='font-bold text-justify'>
-                <span className='text-3xl font-extrabold text-[#f0c774] bebas-neue-regular'>
-                  4400 SCHOOLS COVERED
-                </span>
-                <br />
-                In 417 Districts Of India
-              </p>
-            </div>
-            <div className='flex-1 flex items-center justify-center  gap-4'>
-              <img
-                src='/ChildForChild/lastyear_3.png'
-                alt=''
-                className='w-[100px]'
-              />
-              <p className='font-bold text-justify'>
-                <span className='text-3xl font-extrabold text-[#b2d3d1] bebas-neue-regular'>
-                  More than 27000 EVENTS
-                </span>
-                <br />
-                Activities Conducted In School
-              </p>
-            </div>
-          </div>
-        </div>
       </div>
 
       <div className='w-full bg-[#bad4d2] text-white text-center py-20 flex flex-col items-center justify-center gap-10'>
@@ -171,66 +183,42 @@ const IndividualSupport = () => {
 
       <SupportACause heading={'WHAT OUR SUPPORTERS SAY'} />
 
-      <section className='py-12 md:py-16 bg-white'>
-        <div className='w-[90%] md:w-[85%] lg:w-[80%] mx-auto'>
-          <div className='flex justify-between items-center mb-8 md:mb-10'>
-            <h2 className='text-3xl md:text-4xl lg:text-5xl font-bold bebas-neue-regular tracking-wide'>
-              NEW EVENTS
-            </h2>
-            <a
-              href='#'
-              className='bg-green-500 hover:bg-green-600 text-white px-4 py-2 md:px-6 md:py-3 rounded-md transition-all duration-300 text-sm md:text-base font-medium'
-            >
-              VIEW ALL
-            </a>
-          </div>
+      <div className='py-10 text-center'>
+        <h2 className='text-[28px] md:text-[36px] lg:text-[42px] font-bold mb-2 bebas-neue-regular'>
+          Recent Activities
+        </h2>
 
-          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8'>
-            {events.map(event => (
-              <div
-                key={event.id}
-                className='bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 group'
-              >
-                <div className='relative'>
-                  <img
-                    src={event.image}
-                    alt={event.title}
-                    className='w-full h-[240px] object-cover'
-                  />
-                  <div className='absolute top-4 left-4'>
-                    <span className='bg-gray-700 bg-opacity-80 text-white text-xs px-3 py-1 rounded-full'>
-                      {event.category}
-                    </span>
-                  </div>
-                </div>
+        <Swiper
+          spaceBetween={15}
+          slidesPerView={1}
+          breakpoints={{
+            768: { slidesPerView: 2 },
+            1024: { slidesPerView: 4 }
+          }}
+          autoplay={{ delay: 3000, disableOnInteraction: false }}
+          loop={true}
+          modules={[Autoplay]}
+          className='w-[75%] mx-auto'
+        >
+          {stories.map(story => (
+            <SwiperSlide key={story.id}>
+              <HoverCard story={story} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
 
-                <div className='p-5 md:p-6'>
-                  <h3 className='text-lg md:text-xl font-bold mb-4 line-clamp-2'>
-                    {event.title}
-                  </h3>
-
-                  <a
-                    href={event.link}
-                    className='inline-flex items-center text-gray-700 group-hover:text-green-600 font-medium text-sm md:text-base transition-colors duration-300'
-                  >
-                    READ MORE <ArrowRight className='ml-2 w-4 h-4' />
-                  </a>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
       <div className='flex flex-col lg:flex-row items-center justify-center text-[#6a6b6a]'>
         {[
           { img: '/fOCUS.webp', title: 'Focus Areas' },
           { img: '/GOOD-GOVERNANCE.webp', title: 'Annual Report' },
-          { img: '/blogs.webp', title: 'Blogs' }
+          { img: '/blogs.webp', title: 'Blogs' },
+          {img: '/Programmes.webp', title: 'Programs'}
         ].map((item, index) => (
           <div
             key={index}
             className={`flex flex-col items-center justify-center bg-[#b1d2d0] border-black w-full lg:w-1/3 h-[300px] md:h-[350px] lg:h-[250px] p-4 ${
-              index !== 2 ? 'lg:border-r-2' : ''
+              index !== 3 ? 'lg:border-r-2' : ''
             }`}
           >
             <img
