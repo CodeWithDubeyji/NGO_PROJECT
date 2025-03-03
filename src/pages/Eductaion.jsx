@@ -134,6 +134,7 @@ function FourProngedApproach () {
 }
 
 const Eductaion = () => {
+
   const [selectedVideo, setSelectedVideo] = useState(null)
 
   const closeModal = () => setSelectedVideo(null)
@@ -321,7 +322,7 @@ const Eductaion = () => {
         <h1 className='text-[30px] md:text-[42px] lg:text-[2.5rem] font-semibold bebas-neue-regular tracking-wide'>
           Reach & Presence
         </h1>
-        <div className='flex gap-1 '>
+        <div className='flex gap-1 justify-center items-center flex-wrap '>
           <img
             src='/Education/reach_1.webp'
             alt=''

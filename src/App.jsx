@@ -16,9 +16,15 @@ import Healthcare from './pages/Healthcare'
 import Livelihood from './pages/Livelihood'
 import WomenEmpowerment from './pages/WomenEmpowerment'
 import DisasterResponse from './pages/DisasterResponse'
-import EmpoweringGrassroots from './pages/EmpoweringGrassroots'
 import ChildForChild from './pages/ChildForChild'
-
+import IndividualSupport from './pages/IndividualSupport'
+import CorporateRespons from './pages/CorporateRespons'
+import CauseMarket from './pages/CauseMarket'
+import EmployeeManage from './pages/EmployeeManage'
+import PayrollGiv from './pages/PayrollGiv'
+import SchoolPartnership from './pages/SchoolPartnership'
+import Volunteers from './pages/Volunteers'
+import WorkWithUs from './pages/WorkWithUs.jsx'
 const App = () => {
   return (
     <BrowserRouter>
@@ -36,8 +42,15 @@ const App = () => {
           <Route path = '/livelihood' element={<Livelihood /> } />
           <Route path = '/women-empowerment' element={<WomenEmpowerment /> } />
           <Route path = '/disaster-response' element={<DisasterResponse /> } />
-          <Route path = '/empowering-grassroots' element={<EmpoweringGrassroots /> } />
           <Route path='/child-for-child' element={<ChildForChild />} />
+          <Route path='/individual-support' element={<IndividualSupport />} />
+          <Route path='/corporate-social-responsibility' element={<CorporateRespons />} />
+          <Route path='/cause-marketing-and-events' element={<CauseMarket />} />
+          <Route path='/employee-engagement' element={<EmployeeManage/>} />
+          <Route path='/payroll-giving' element={<PayrollGiv />} />
+          <Route path='/school-partnership' element={<SchoolPartnership />} />
+          <Route path='/volunteers-and-internship' element={<Volunteers />} />
+          <Route path='/work-with-us' element={<WorkWithUs />} />
           <Route path='/contact-us' element={<Contact />} />
           <Route path='/faq' element={<Faq />} />
           <Route path='/community' element={<Community />}/>

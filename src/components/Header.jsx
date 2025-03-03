@@ -56,6 +56,7 @@ const NavItem = ({ title, items }) => {
   )
 }
 
+// Updated MobileNavItem component to handle nested items
 const MobileNavItem = ({ title, items }) => {
   const [isOpen, setIsOpen] = useState(false)
 
@@ -77,14 +78,55 @@ const MobileNavItem = ({ title, items }) => {
       {items && isOpen && (
         <div className='bg-gray-50 px-4 py-2'>
           {items.map((item, index) => (
-            <a
-              key={index}
-              href={item.href}
-              target={item.target}
-              className='block py-2 text-sm text-gray-600'
+            <div key={index} className='mb-2'>
+              {item.items ? (
+                <MobileSubItem item={item} />
+              ) : (
+                <Link
+                  to={item.href}
+                  target={item.target}
+                  className='block py-2 text-sm text-gray-600 hover:text-gray-900'
+                >
+                  {item.title}
+                </Link>
+              )}
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  )
+}
+
+// New component for handling nested mobile sub-items
+const MobileSubItem = ({ item }) => {
+  const [isSubOpen, setIsSubOpen] = useState(false)
+
+  return (
+    <div className='py-1'>
+      <button
+        className='flex w-full items-center justify-between py-2 text-left text-sm text-gray-600 hover:text-gray-900'
+        onClick={() => setIsSubOpen(!isSubOpen)}
+      >
+        <span>{item.title}</span>
+        <ChevronDown
+          className={`h-3 w-3 transition-transform ${
+            isSubOpen ? 'rotate-180' : ''
+          }`}
+        />
+      </button>
+
+      {isSubOpen && (
+        <div className='pl-4 mt-1 border-l-2 border-gray-200'>
+          {item.items.map((subItem, subIndex) => (
+            <Link
+              key={subIndex}
+              to={subItem.href}
+              target={subItem.target}
+              className='block py-2 text-sm text-gray-600 hover:text-gray-900'
             >
-              {item.title}
-            </a>
+              {subItem.title}
+            </Link>
           ))}
         </div>
       )}
@@ -98,7 +140,7 @@ const MobileMenu = ({ isOpen, onClose, navItems }) => {
   return (
     <div className='fixed inset-0 z-50 lg:hidden'>
       <div className='fixed inset-0 bg-black/50' onClick={onClose} />
-      <div className='fixed right-0 top-0 h-full w-[300px] bg-white p-6 shadow-xl'>
+      <div className='fixed right-0 top-0 h-full w-[300px] bg-white p-6 shadow-xl overflow-y-auto'>
         <div className='mb-8 flex items-center justify-between'>
           <img src={`logo.webp`} alt='Logo' className='h-8 w-auto' />
           <button onClick={onClose} className='text-gray-500'>
@@ -128,7 +170,7 @@ export default function Navbar () {
           items: [
             { title: 'Leadership', href: '#' },
             { title: 'Mentors', href: '#' },
-            { title: 'Our People', href: '#' },
+            { title: 'Our People', href: '#' }
           ]
         },
         { title: 'Impact', href: '/impact' },
@@ -146,34 +188,73 @@ export default function Navbar () {
         { title: 'Livelihood', href: '/livelihood' },
         { title: 'Women Empowerment', href: '/women-empowerment' },
         { title: 'Disaster Response', href: '/disaster-response' },
-        { title: 'Empowering Grassroots', href: '/empowering-grassroots' },
+        {
+          title: 'Empowering Grassroots',
+          href: 'https://www.smilefoundationindia.org/ctgi/',
+          target: '_blank'
+        },
         {
           title: 'Privileged Children',
           href: '#',
           items: [
             { title: 'Child For Child', href: '/child-for-child' },
-            { title: 'Sciffy', href: 'https://siffcy.org/', target: "_blank" },
+            { title: 'Sciffy', href: 'https://siffcy.org/', target: '_blank' }
           ]
-        },
+        }
       ]
     },
     {
       title: 'CAMPAIGNS',
       items: [
-        { title: 'Siksha Na Ruke', href: 'https://donate.smilefoundationindia.org/donate-for-education/', target: "_blank"},
-        { title: 'Health Cannot Wait', href: 'https://donate.smilefoundationindia.org/donate-for-healthcare/', target: "_blank" },
-        { title: 'She Can Fly', href: 'https://donate.smilefoundationindia.org/donate-for-girl-child', target: "_blank" },
-        { title: 'Swabhiman', href: 'https://donate.smilefoundationindia.org/women-empowerment/', target: "_blank" },
-        { title: 'Tayaari Kal Ki', href: 'https://donate.smilefoundationindia.org/donate-for-livelihood/', target: "_blank" },
-        { title: 'Disaster Relief', href: 'https://donate.smilefoundationindia.org/disaster-relief/', target: "_blank" },
+        {
+          title: 'Siksha Na Ruke',
+          href: 'https://donate.smilefoundationindia.org/donate-for-education/',
+          target: '_blank'
+        },
+        {
+          title: 'Health Cannot Wait',
+          href: 'https://donate.smilefoundationindia.org/donate-for-healthcare/',
+          target: '_blank'
+        },
+        {
+          title: 'She Can Fly',
+          href: 'https://donate.smilefoundationindia.org/donate-for-girl-child',
+          target: '_blank'
+        },
+        {
+          title: 'Swabhiman',
+          href: 'https://donate.smilefoundationindia.org/women-empowerment/',
+          target: '_blank'
+        },
+        {
+          title: 'Tayaari Kal Ki',
+          href: 'https://donate.smilefoundationindia.org/donate-for-livelihood/',
+          target: '_blank'
+        },
+        {
+          title: 'Disaster Relief',
+          href: 'https://donate.smilefoundationindia.org/disaster-relief/',
+          target: '_blank'
+        }
       ]
     },
     {
       title: 'GET INVOLVED',
       items: [
-        { title: 'Volunteer', href: '#' },
-        { title: 'Partner with Us', href: '#' },
-        { title: 'Careers', href: '#' }
+        { title: 'Individual Support', href: '/individual-support' },
+        {
+          title: 'Corporate Partnership',
+          href: '#',
+          items: [
+            { title: 'Corporate Social Responsibility', href: '/corporate-social-responsibility' },
+            { title: 'Cause Marketing & Events', href: '/cause-marketing-and-events' },
+            { title: 'Employee Engagement', href: '/employee-engagement' },
+            { title: 'Payroll Giving', href: '/payroll-giving' },
+          ]
+        },
+        { title: 'School Partnership', href: '/school-partnership' },
+        { title: 'Volunteers & Internship', href: '/volunteers-and-internship' },
+        { title: 'Work With Us', href: '/work-with-us' },
       ]
     },
     { title: 'MEDIA CENTRE' },
@@ -182,9 +263,9 @@ export default function Navbar () {
       title: 'Contact us',
       items: [
         { title: 'Get In Touch', href: '/contact-us' },
-        { title: 'Faq', href: '/faq' },
+        { title: 'Faq', href: '/faq' }
       ]
-    },
+    }
   ]
 
   return (

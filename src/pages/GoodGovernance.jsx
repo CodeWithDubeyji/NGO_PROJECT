@@ -193,7 +193,7 @@ const GoodGovernence = () => {
           Registration Details
         </h2>
 
-        <div className='flex gap-4 raleway-400 tracking-wide'>
+        <div className='flex gap-4 raleway-400 tracking-wide flex-wrap'>
           <p className='text-justify p-6 bg-[#f0f0f0] flex-1 rounded-lg'>
             Smile Foundation is registered with the Income Tax Department under
             Section 12A. The said certificate is valid till AY 2026-27.
@@ -262,7 +262,7 @@ const GoodGovernence = () => {
         <h2 className='text-[28px] md:text-[36px] lg:text-[30px] font-bold ml-4 bebas-neue-regular'>
           Utilization of funds
         </h2>
-        <div className='max-w-6xl flex'>
+        <div className='max-w-6xl flex justify-center items-center lg:flex-row flex-col gap-4 mx-auto mt-8'>
           <div className=''>
             <img src='/Smile-Foundation-Financials-1.png' alt='' />
           </div>

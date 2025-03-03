@@ -4,31 +4,28 @@ import { X, ArrowRight } from 'lucide-react'
 
 import SupportACause from '../components/Home/SupportACause'
 
-const ChildForChild = () => {
+const IndividualSupport = () => {
   const events = [
     {
       id: 1,
       category: 'CFC HAPPENINGS',
       title:
         "SIFFCY' 24 - BRINGING THE MAGIC OF GOOD CINEMA TO CHILDREN NATIONWIDE",
-      image:
-        '/ChildForChild/events_1.webp',
+      image: '/ChildForChild/events_1.webp',
       link: '#'
     },
     {
       id: 2,
       category: 'CFC HAPPENINGS',
       title: 'YOUTH EURO QUIZ 2024 AT CZECH REPUBLIC EMBASSY',
-      image:
-        '/ChildForChild/events_2.webp',
+      image: '/ChildForChild/events_2.webp',
       link: '#'
     },
     {
       id: 3,
       category: 'CFC HAPPENINGS',
       title: 'SESSION ON IMPORTANCE OF HYGIENE',
-      image:
-        '/ChildForChild/events_3.webp',
+      image: '/ChildForChild/events_3.webp',
       link: '#'
     }
   ]
@@ -43,7 +40,7 @@ const ChildForChild = () => {
         />
         <div className='relative w-full h-screen flex justify-center items-center bg-black bg-opacity-35 p-4 rounded-lg'>
           <h2 className='text-[30px] md:text-[42px] lg:text-[70px] font-light text-white bebas-neue-regular'>
-            ENABLING CHILDREN TO BECOME AGENTS OF CHANGE
+            The world needs Smile Warriors
           </h2>
         </div>
       </div>
@@ -251,4 +248,4 @@ const ChildForChild = () => {
   )
 }
 
-export default ChildForChild
+export default IndividualSupport

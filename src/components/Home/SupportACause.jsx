@@ -10,45 +10,37 @@ const stories = [
     id: 1,
     thumbnail:
       'https://www.smilefoundationindia.org/wp-content/uploads/2023/02/1-Smile-Foundation-s-Real-Work-Real-Change-to-support-the-underprivileged-people-YouTube-1.png',
-    DonateUrl: 'https://www.youtube.com/embed/5KLyjoH8uew?si=rFoOTeyBK_PKPR5R'
+    DonateUrl: 'https://www.youtube.com/embed/5KLyjoH8uew?si=rFoOTeyBK_PKPR5R',
+    title: 'Tayyari Kal Ki'
   },
   {
     id: 2,
     thumbnail:
       'https://www.smilefoundationindia.org/wp-content/uploads/2023/02/Shiksha-Na-Ruke-Anthem.jpg',
-    DonateUrl: 'https://www.youtube.com/embed/5KLyjoH8uew?si=rFoOTeyBK_PKPR5R'
+    DonateUrl: 'https://www.youtube.com/embed/5KLyjoH8uew?si=rFoOTeyBK_PKPR5R',
+    title: 'Health Cannot Wait'
   },
   {
     id: 3,
     thumbnail:
       'https://www.smilefoundationindia.org/wp-content/uploads/2023/02/8-WorldHealthDay-YouTube-1.png',
-    DonateUrl: 'https://www.youtube.com/embed/5KLyjoH8uew?si=rFoOTeyBK_PKPR5R'
+    DonateUrl: 'https://www.youtube.com/embed/5KLyjoH8uew?si=rFoOTeyBK_PKPR5R',
+    title: 'Shiksha Na Ruke'
   },
   {
     id: 4,
     thumbnail:
       'https://www.smilefoundationindia.org/wp-content/uploads/2023/02/8-Rupali-Paraja-–-Mission-Education-Beneficiary-Darigabadi-Odisha-YouTube-1.png',
-    DonateUrl: 'https://www.youtube.com/embed/5KLyjoH8uew?si=rFoOTeyBK_PKPR5R'
-  },
-  {
-    id: 5,
-    thumbnail:
-      'https://www.smilefoundationindia.org/wp-content/uploads/2023/02/8-Shiksha-Na-Ruke-for-the-children-of-sugarcane-cutters-in-Beed-Maharashtra-YouTube-1.png',
-    DonateUrl: 'https://www.youtube.com/embed/5KLyjoH8uew?si=rFoOTeyBK_PKPR5R'
-  },
-  {
-    id: 6,
-    thumbnail:
-      'https://www.smilefoundationindia.org/wp-content/uploads/2023/02/1-WorldHealthDay-YouTube-1.png',
-    DonateUrl: 'https://www.youtube.com/embed/5KLyjoH8uew?si=rFoOTeyBK_PKPR5R'
+    DonateUrl: 'https://www.youtube.com/embed/5KLyjoH8uew?si=rFoOTeyBK_PKPR5R',
+    title: 'She Can Fly'
   }
 ]
 
-const SupportACause = () => {
+const SupportACause = ({heading}) => {
   return (
     <div className='py-10 text-center'>
       <h2 className='text-[28px] md:text-[36px] lg:text-[42px] font-bold mb-2 bebas-neue-regular'>
-        Support A Cause
+        {heading || 'Support A Cause'}
       </h2>
 
       <Swiper
@@ -95,7 +87,7 @@ const HoverCard = ({ story }) => {
           animate={{ y: isHovered ? 50 : 0, opacity: isHovered ? 0 : 1 }}
           transition={{ duration: 0.3, ease: 'easeOut' }}
         >
-          Tayyari Kal Ki
+          {story.title}
         </motion.p>
 
         <img
