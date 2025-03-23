@@ -9,38 +9,38 @@ const stories = [
   {
     id: 1,
     thumbnail:
-      'https://www.smilefoundationindia.org/wp-content/uploads/2023/02/1-Smile-Foundation-s-Real-Work-Real-Change-to-support-the-underprivileged-people-YouTube-1.png',
-    videoUrl: 'https://www.youtube.com/embed/5KLyjoH8uew?si=rFoOTeyBK_PKPR5R'
+      '/Home/thumbnail1.png',
+    videoUrl: '/Home/vid1.mp4'
   },
   {
     id: 2,
     thumbnail:
-      'https://www.smilefoundationindia.org/wp-content/uploads/2023/02/Shiksha-Na-Ruke-Anthem.jpg',
-    videoUrl: 'https://www.youtube.com/embed/5KLyjoH8uew?si=rFoOTeyBK_PKPR5R'
+      '/Home/thumbnail2.png',
+    videoUrl: '/Home/vid2.mp4'
   },
   {
     id: 3,
     thumbnail:
-      'https://www.smilefoundationindia.org/wp-content/uploads/2023/02/8-WorldHealthDay-YouTube-1.png',
-    videoUrl: 'https://www.youtube.com/embed/5KLyjoH8uew?si=rFoOTeyBK_PKPR5R'
+      '/Home/thumbnail1.png',
+    videoUrl: '/Home/vid1.mp4'
   },
   {
     id: 4,
     thumbnail:
-      'https://www.smilefoundationindia.org/wp-content/uploads/2023/02/8-Rupali-Paraja-–-Mission-Education-Beneficiary-Darigabadi-Odisha-YouTube-1.png',
-    videoUrl: 'https://www.youtube.com/embed/5KLyjoH8uew?si=rFoOTeyBK_PKPR5R'
+      '/Home/thumbnail2.png',
+    videoUrl: '/Home/vid2.mp4'
   },
   {
     id: 5,
     thumbnail:
-      'https://www.smilefoundationindia.org/wp-content/uploads/2023/02/8-Shiksha-Na-Ruke-for-the-children-of-sugarcane-cutters-in-Beed-Maharashtra-YouTube-1.png',
-    videoUrl: 'https://www.youtube.com/embed/5KLyjoH8uew?si=rFoOTeyBK_PKPR5R'
+      '/Home/thumbnail1.png',
+    videoUrl: '/Home/vid1.mp4'
   },
   {
     id: 6,
     thumbnail:
-      'https://www.smilefoundationindia.org/wp-content/uploads/2023/02/1-WorldHealthDay-YouTube-1.png',
-    videoUrl: 'https://www.youtube.com/embed/5KLyjoH8uew?si=rFoOTeyBK_PKPR5R'
+      '/Home/thumbnail2.png',
+    videoUrl: '/Home/vid2.mp4'
   }
 ]
 
@@ -60,7 +60,7 @@ const Stories = () => {
         slidesPerView={1}
         breakpoints={{
           768: { slidesPerView: 2 },
-          1024: { slidesPerView: 3 }
+          1024: { slidesPerView: 2 }
         }}
         autoplay={{ delay: 3000, disableOnInteraction: false }}
         loop={true}

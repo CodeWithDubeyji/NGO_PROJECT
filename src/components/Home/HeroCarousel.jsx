@@ -7,19 +7,23 @@ const HeroCarousel = () => {
 
   const slides = [
     {
-      image: "/Banner1-scaled.jpg.webp",
+      image: "/Home/1.jpg",
       link: "/livelihood",
     },
     {
-      image: "/Banner2-1.jpg.webp",
+      image: "/Home/2.jpg",
       link: "/education",
     },
     {
-      image: "/Banner3-1.jpg.webp",
+      image: "/Home/3.jpg",
       link: "/healthcare",
     },
     {
-      image: "/Banner4-1.jpg.webp",
+      image: "/Home/4.jpg",
+      link: "/community",
+    },
+    {
+      image: "/Home/5.jpg",
       link: "/community",
     },
   ]
@@ -58,7 +62,7 @@ const HeroCarousel = () => {
           >
             {/* Background Image */}
             <div className="absolute inset-0">
-              <img src={slide.image || "/placeholder.svg"} alt={slide.title} className="w-full h-full object-cover" />
+              <img src={slide.image || "/placeholder.svg"} alt={slide.title} className="w-full h-full object-fill" />
             </div>
           </Link>
         ))}
