@@ -2,45 +2,32 @@ import React from 'react'
 
 const programmes = [
   {
-    title: 'Education',
+    title: 'NGOs for visually impaired',
     color: '#f0c675',
     image: '/Education_dsektop1.png',
-    description: 'Education, nutrition and holistic development of children'
+    description:
+      'We offer selfless support and aid for the blind. We understand and look after their needs at all times.'
   },
   {
-    title: 'Healthcare',
+    title: 'NGOs for Blood donation',
     color: '#beabcb',
     image: '/Healthcare_desktop1.png',
     description:
-      'Taking healthcare services to doorsteps of hard to reach communities'
+      'We collect blood so that we can provide it for someone who maybe in dire need of it and maybe save lives.'
   },
   {
-    title: 'Women Empowerment',
+    title: 'NGOs FOR CHILDREN',
     color: '#b3d3d2',
     image: '/WomenEmp_desktop1.png',
     description:
-      'Empowering adolescent girls & women through community engagement'
+      'We are a institution with the objective of improving the livelihood & education of underprivileged children.'
   },
   {
-    title: 'Livelihood',
+    title: 'CONSULTATION',
     color: '#dfc0af',
     image: '/Livelihood_desk1.png',
     description:
-      'Skill training and placement support for underprivileged youth'
-  },
-  {
-    title: 'Empowering Grassroots',
-    color: '#51c777',
-    image: '/Grassrots_desktop1.jpg',
-    description:
-      'Helping community-based organizations become locally sustainable'
-  },
-  {
-    title: 'Disaster Response',
-    color: '#fb8071',
-    image: '/Disaster_desktop1.jpg',
-    description:
-      'Reach out and respond to the needs of the disaster-affected people'
+      'Owing to our huge industrial knowledge and rich information, we are offering our customers with the best consultancy services. These services are available in varied provisions as per the detailed needs of our customers.'
   }
 ]
 
@@ -49,7 +36,7 @@ const OurProgrammes = () => {
     <div className='py-[60px] bebas-neue-regular w-full px-4 md:px-6'>
       <div className='max-w-6xl mx-auto px-4 md:px-6'>
         <h2 className='text-[28px] md:text-[36px] lg:text-[42px] font-bold mb-2 bebas-neue-regular  text-center'>
-          Our Programmes
+          Our Services
         </h2>
         <div className='grid grid-cols-1 md:grid-cols-2 gap-x-10 md:gap-x-24 gap-y-8 md:gap-y-14 w-[95%] mx-auto'>
           {programmes.map((programme, index) => (

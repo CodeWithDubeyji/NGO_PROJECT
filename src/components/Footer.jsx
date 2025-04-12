@@ -3,7 +3,7 @@ import { Facebook, Twitter, Youtube, Instagram, Linkedin } from 'lucide-react'
 const Footer = () => {
   const footerLinks = {
     'ABOUT US': [
-      'About Smile',
+      'About us',
       'Impact',
       'Reach & Presence',
       'Milestones',
@@ -61,7 +61,7 @@ const Footer = () => {
                 {links.map(link => (
                   <li key={link}>
                     <a
-                      href='#'
+                      href={link == "About us" ? "#about-us" : "#"}
                       className='hover:text-white transition duration-300'
                     >
                       {link}
@@ -77,13 +77,15 @@ const Footer = () => {
         <div className='border-t border-[#9d9c9d] pt-8 space-y-4'>
           <div className='flex flex-col justify-between items-center lg:flex-row'>
             <div className=' flex flex-col gap-2'>
-              <p className='text-base font-semibold'>Smile Foundation</p>
-              <p className='text-sm'>
-                161 B/4, 3rd Floor, Gulmohar House, Yusuf Sarai Community
-                Centre, New Delhi - 110049, India
+              <p className='text-base font-semibold'>
+                Sanvi Mahila Jan Seva Sansthan
               </p>
               <p className='text-sm'>
-                Contact: +91-11-43123700 | info@smilefoundationindia.org
+                Village & Post - Sarai Shankar, Tahsil: Patti, District-
+                Pratapgarh, UP- 230401
+              </p>
+              <p className='text-sm'>
+                Contact: +91-7007681030 | support@smjssindia.org
               </p>
             </div>
 

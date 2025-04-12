@@ -4,39 +4,48 @@ import { Autoplay } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/autoplay'
 import { motion } from 'framer-motion'
+import { desc } from 'framer-motion/client'
 
 const stories = [
   {
     id: 1,
     thumbnail:
-      'https://www.smilefoundationindia.org/wp-content/uploads/2023/02/1-Smile-Foundation-s-Real-Work-Real-Change-to-support-the-underprivileged-people-YouTube-1.png',
+      '/Home/7.jpg',
     DonateUrl: 'https://www.youtube.com/embed/5KLyjoH8uew?si=rFoOTeyBK_PKPR5R',
-    title: 'Tayyari Kal Ki'
+    title: 'NGO for Blind',
+    description:
+      'We offer selfless support and aid for the blind. We understand and look after their needs at all times.'
   },
   {
     id: 2,
     thumbnail:
-      'https://www.smilefoundationindia.org/wp-content/uploads/2023/02/Shiksha-Na-Ruke-Anthem.jpg',
+      '/Home/9.jpg',
     DonateUrl: 'https://www.youtube.com/embed/5KLyjoH8uew?si=rFoOTeyBK_PKPR5R',
-    title: 'Health Cannot Wait'
+    title: 'NGOs for Blood donation',
+    description:
+      'We collect blood so that we can provide it for someone who maybe in dire need of it and maybe save lives.'
   },
   {
     id: 3,
     thumbnail:
-      'https://www.smilefoundationindia.org/wp-content/uploads/2023/02/8-WorldHealthDay-YouTube-1.png',
+      '/Home/1.jpg',
     DonateUrl: 'https://www.youtube.com/embed/5KLyjoH8uew?si=rFoOTeyBK_PKPR5R',
-    title: 'Shiksha Na Ruke'
+    title: 'NGOs FOR CHILDREN',
+    description:
+      'We are a institution with the objective of improving the livelihood & education of underprivileged children.'
   },
   {
     id: 4,
     thumbnail:
-      'https://www.smilefoundationindia.org/wp-content/uploads/2023/02/8-Rupali-Paraja-–-Mission-Education-Beneficiary-Darigabadi-Odisha-YouTube-1.png',
+      '/Home/8.jpg',
     DonateUrl: 'https://www.youtube.com/embed/5KLyjoH8uew?si=rFoOTeyBK_PKPR5R',
-    title: 'She Can Fly'
+    title: 'CONSULTATION',
+    description:
+      'Owing to our huge industrial knowledge and rich information, we are offering our customers with the best consultancy services. These services are available in varied provisions as per the detailed needs of our customers.'
   }
 ]
 
-const SupportACause = ({heading}) => {
+const SupportACause = ({ heading }) => {
   return (
     <div className='py-10 text-center'>
       <h2 className='text-[28px] md:text-[36px] lg:text-[42px] font-bold mb-2 bebas-neue-regular'>
@@ -99,9 +108,7 @@ const HoverCard = ({ story }) => {
 
       {/* Description Below */}
       <p className='text-[15px] raleway-400 mt-4 mb-[1em] tracking-widest leading-5 font-normal'>
-        Our campaign ‘Tayyari Kal Ki’ aims at Training & Up Skilling the youth
-        between the age of 18-32 years for employment and empowering them with a
-        secure livelihood.
+        {story.description}
       </p>
       <a href='#' className='text-[#abc73f] font-normal'>
         Know more &gt;

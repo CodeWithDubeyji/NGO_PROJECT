@@ -18,8 +18,8 @@ const Home = () => {
       <Stories />
       <SupportACause />
       <Partners /> 
-      <Awards />
-      <EmpanelmentAndAccreditations />
+      {/* <Awards />
+      <EmpanelmentAndAccreditations /> */}
     </div>
   )
 }
