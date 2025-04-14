@@ -164,15 +164,15 @@ export default function Navbar () {
       title: 'ABOUT US',
       items: [
         { title: 'About Us', href: '/our-story' },
-        {
-          title: 'People Behind Smile',
-          href: '#',
-          items: [
-            { title: 'Leadership', href: '#' },
-            { title: 'Mentors', href: '#' },
-            { title: 'Our People', href: '#' }
-          ]
-        },
+        // {
+        //   title: 'People Behind Smile',
+        //   href: '#',
+        //   items: [
+        //     { title: 'Leadership', href: '#' },
+        //     { title: 'Mentors', href: '#' },
+        //     { title: 'Our People', href: '#' }
+        //   ]
+        // },
         { title: 'Impact', href: '/impact' },
         { title: 'Reach & Presence', href: '/reach-presence' },
         { title: 'Civic Driven Changes', href: '/civic-driven-changes' },
@@ -193,51 +193,51 @@ export default function Navbar () {
           href: 'https://www.smilefoundationindia.org/ctgi/',
           target: '_blank'
         },
-        {
-          title: 'Privileged Children',
-          href: '#',
-          items: [
-            { title: 'Child For Child', href: '/child-for-child' },
-            { title: 'Sciffy', href: 'https://siffcy.org/', target: '_blank' }
-          ]
-        }
+        // {
+        //   title: 'Privileged Children',
+        //   href: '#',
+        //   items: [
+        //     { title: 'Child For Child', href: '/child-for-child' },
+        //     { title: 'Sciffy', href: 'https://siffcy.org/', target: '_blank' }
+        //   ]
+        // }
       ]
     },
-    {
-      title: 'CAMPAIGNS',
-      items: [
-        {
-          title: 'Siksha Na Ruke',
-          href: 'https://donate.smilefoundationindia.org/donate-for-education/',
-          target: '_blank'
-        },
-        {
-          title: 'Health Cannot Wait',
-          href: 'https://donate.smilefoundationindia.org/donate-for-healthcare/',
-          target: '_blank'
-        },
-        {
-          title: 'She Can Fly',
-          href: 'https://donate.smilefoundationindia.org/donate-for-girl-child',
-          target: '_blank'
-        },
-        {
-          title: 'Swabhiman',
-          href: 'https://donate.smilefoundationindia.org/women-empowerment/',
-          target: '_blank'
-        },
-        {
-          title: 'Tayaari Kal Ki',
-          href: 'https://donate.smilefoundationindia.org/donate-for-livelihood/',
-          target: '_blank'
-        },
-        {
-          title: 'Disaster Relief',
-          href: 'https://donate.smilefoundationindia.org/disaster-relief/',
-          target: '_blank'
-        }
-      ]
-    },
+    // {
+    //   title: 'CAMPAIGNS',
+    //   items: [
+    //     {
+    //       title: 'Siksha Na Ruke',
+    //       href: 'https://donate.smilefoundationindia.org/donate-for-education/',
+    //       target: '_blank'
+    //     },
+    //     {
+    //       title: 'Health Cannot Wait',
+    //       href: 'https://donate.smilefoundationindia.org/donate-for-healthcare/',
+    //       target: '_blank'
+    //     },
+    //     {
+    //       title: 'She Can Fly',
+    //       href: 'https://donate.smilefoundationindia.org/donate-for-girl-child',
+    //       target: '_blank'
+    //     },
+    //     {
+    //       title: 'Swabhiman',
+    //       href: 'https://donate.smilefoundationindia.org/women-empowerment/',
+    //       target: '_blank'
+    //     },
+    //     {
+    //       title: 'Tayaari Kal Ki',
+    //       href: 'https://donate.smilefoundationindia.org/donate-for-livelihood/',
+    //       target: '_blank'
+    //     },
+    //     {
+    //       title: 'Disaster Relief',
+    //       href: 'https://donate.smilefoundationindia.org/disaster-relief/',
+    //       target: '_blank'
+    //     }
+    //   ]
+    // },
     {
       title: 'GET INVOLVED',
       items: [
@@ -260,10 +260,10 @@ export default function Navbar () {
     { title: 'MEDIA CENTRE' },
     { title: 'RESOURCE CENTER' },
     {
-      title: 'Contact us',
+      title: 'CONTACT US',
       items: [
         { title: 'Get In Touch', href: '/contact-us' },
-        { title: 'Faq', href: '/faq' }
+        // { title: 'Faq', href: '/faq' }
       ]
     }
   ]
