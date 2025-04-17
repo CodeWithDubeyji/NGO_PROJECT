@@ -31,8 +31,8 @@ const App = () => {
       <Routes>
         <Route path='/' element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path='/our-story' element={<About />} />
-          <Route path='/impact' element={<Impact />} />
+         <Route path='/about-us' element={<About />} />
+          {/* <Route path='/impact' element={<Impact />} />
           <Route path='/reach-presence' element={<ReachAndPresence />} />
           <Route path='/civic-driven-changes' element={<CivicChanges />} />
           <Route path='/smilestones' element={<Smilestones />} />
@@ -50,10 +50,10 @@ const App = () => {
           <Route path='/payroll-giving' element={<PayrollGiv />} />
           <Route path='/school-partnership' element={<SchoolPartnership />} />
           <Route path='/volunteers-and-internship' element={<Volunteers />} />
-          <Route path='/work-with-us' element={<WorkWithUs />} />
+          <Route path='/work-with-us' element={<WorkWithUs />} /> */}
           <Route path='/contact-us' element={<Contact />} />
-          <Route path='/faq' element={<Faq />} />
-          <Route path='/community' element={<Community />}/>
+          {/* <Route path='/faq' element={<Faq />} />
+          <Route path='/community' element={<Community />}/> */}
         </Route>
       </Routes>
     </BrowserRouter>

@@ -1,43 +1,43 @@
 import { Facebook, Twitter, Youtube, Instagram, Linkedin } from 'lucide-react'
 
 const Footer = () => {
-  const footerLinks = {
-    'ABOUT US': [
-      'About us',
-      'Impact',
-      'Reach & Presence',
-      'Milestones',
-      'Privacy Policy'
-    ],
-    'OUR WORK': [
-      'Education',
-      'Health',
-      'Livelihood',
-      'Women Empowerment',
-      'Disaster Response'
-    ],
-    CAMPAIGNS: [
-      'Shiksha Na Ruke',
-      'Health Cannot Wait',
-      'She Can Fly',
-      'Swabhiman',
-      'Tayyari Kal Ki'
-    ],
-    'GET INVOLVED': [
-      'Individual Support',
-      'Corporate Partnerships',
-      'Volunteer',
-      'School Partnerships',
-      'Careers'
-    ],
-    'RESOURCE CENTRE': [
-      'Annual Report',
-      'Newsletter',
-      'Stories of Change',
-      'The Smile Blog',
-      'Films'
-    ]
-  }
+  // const footerLinks = {
+  //   'ABOUT US': [
+  //     'About us',
+  //     'Impact',
+  //     'Reach & Presence',
+  //     'Milestones',
+  //     'Privacy Policy'
+  //   ],
+  //   'OUR WORK': [
+  //     'Education',
+  //     'Health',
+  //     'Livelihood',
+  //     'Women Empowerment',
+  //     'Disaster Response'
+  //   ],
+  //   'CAMPAIGNS': [
+  //     'Shiksha Na Ruke',
+  //     'Health Cannot Wait',
+  //     'She Can Fly',
+  //     'Swabhiman',
+  //     'Tayyari Kal Ki'
+  //   ],
+  //   'GET INVOLVED': [
+  //     'Individual Support',
+  //     'Corporate Partnerships',
+  //     'Volunteer',
+  //     'School Partnerships',
+  //     'Careers'
+  //   ],
+  //   'RESOURCE CENTRE': [
+  //     'Annual Report',
+  //     'Newsletter',
+  //     'Stories of Change',
+  //     'The Smile Blog',
+  //     'Films'
+  //   ]
+  // }
 
   const socialLinks = [
     { icon: Facebook, href: '#' },
@@ -51,7 +51,7 @@ const Footer = () => {
     <footer className='bg-[#4c4d4c] text-gray-300 py-12 px-4 mt-auto'>
       <div className='max-w-7xl mx-auto'>
         {/* Desktop View (Hidden on Mobile) */}
-        <div className='hidden md:grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8 mb-8'>
+        {/* <div className='hidden md:grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8 mb-8'>
           {Object.entries(footerLinks).map(([title, links]) => (
             <div key={title} className='space-y-4'>
               <h3 className='text-white font-semibold border-b border-[#9d9c9d] pb-2'>
@@ -71,10 +71,10 @@ const Footer = () => {
               </ul>
             </div>
           ))}
-        </div>
+        </div> */}
 
         {/* Contact, Newsletter & Socials (Always Visible) */}
-        <div className='border-t border-[#9d9c9d] pt-8 space-y-4'>
+        <div className=' pt-8 space-y-4'>
           <div className='flex flex-col justify-between items-center lg:flex-row'>
             <div className=' flex flex-col gap-2'>
               <p className='text-base font-semibold'>

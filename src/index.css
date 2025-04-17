@@ -23,6 +23,20 @@
   .animate-ping {
     animation: customPing 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
   }
+
+  @keyframes scroll {
+    0% {
+      transform: translateY(0%);
+    }
+    100% {
+      transform: translateY(-50%);
+    }
+  }
+  
+  .animate-marquee {
+    animation: scroll 20s linear infinite;
+  }
+  
   
 @tailwind base;
 @tailwind components;

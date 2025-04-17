@@ -163,7 +163,7 @@ export default function Navbar () {
     {
       title: 'ABOUT US',
       items: [
-        { title: 'About Us', href: '/our-story' },
+        { title: 'About Us', href: '/about-us' },
         // {
         //   title: 'People Behind Smile',
         //   href: '#',
@@ -173,36 +173,36 @@ export default function Navbar () {
         //     { title: 'Our People', href: '#' }
         //   ]
         // },
-        { title: 'Impact', href: '/impact' },
-        { title: 'Reach & Presence', href: '/reach-presence' },
-        { title: 'Civic Driven Changes', href: '/civic-driven-changes' },
-        { title: 'Smilestones', href: '/smilestones' },
-        { title: 'Good Governance', href: '/good-governance' }
+        // { title: 'Impact', href: '/impact' },
+        // { title: 'Reach & Presence', href: '/reach-presence' },
+        // { title: 'Civic Driven Changes', href: '/civic-driven-changes' },
+        // { title: 'Smilestones', href: '/smilestones' },
+        // { title: 'Good Governance', href: '/good-governance' }
       ]
     },
-    {
-      title: 'OUR WORK',
-      items: [
-        { title: 'Education', href: '/education' },
-        { title: 'Healthcare', href: '/healthcare' },
-        { title: 'Livelihood', href: '/livelihood' },
-        { title: 'Women Empowerment', href: '/women-empowerment' },
-        { title: 'Disaster Response', href: '/disaster-response' },
-        {
-          title: 'Empowering Grassroots',
-          href: 'https://www.smilefoundationindia.org/ctgi/',
-          target: '_blank'
-        },
-        // {
-        //   title: 'Privileged Children',
-        //   href: '#',
-        //   items: [
-        //     { title: 'Child For Child', href: '/child-for-child' },
-        //     { title: 'Sciffy', href: 'https://siffcy.org/', target: '_blank' }
-        //   ]
-        // }
-      ]
-    },
+    // {
+    //   title: 'OUR WORK',
+    //   items: [
+    //     { title: 'Education', href: '/education' },
+    //     { title: 'Healthcare', href: '/healthcare' },
+    //     { title: 'Livelihood', href: '/livelihood' },
+    //     { title: 'Women Empowerment', href: '/women-empowerment' },
+    //     { title: 'Disaster Response', href: '/disaster-response' },
+    //     {
+    //       title: 'Empowering Grassroots',
+    //       href: 'https://www.smilefoundationindia.org/ctgi/',
+    //       target: '_blank'
+    //     },
+    //     // {
+    //     //   title: 'Privileged Children',
+    //     //   href: '#',
+    //     //   items: [
+    //     //     { title: 'Child For Child', href: '/child-for-child' },
+    //     //     { title: 'Sciffy', href: 'https://siffcy.org/', target: '_blank' }
+    //     //   ]
+    //     // }
+    //   ]
+    // },
     // {
     //   title: 'CAMPAIGNS',
     //   items: [
@@ -238,27 +238,27 @@ export default function Navbar () {
     //     }
     //   ]
     // },
-    {
-      title: 'GET INVOLVED',
-      items: [
-        { title: 'Individual Support', href: '/individual-support' },
-        {
-          title: 'Corporate Partnership',
-          href: '#',
-          items: [
-            { title: 'Corporate Social Responsibility', href: '/corporate-social-responsibility' },
-            { title: 'Cause Marketing & Events', href: '/cause-marketing-and-events' },
-            { title: 'Employee Engagement', href: '/employee-engagement' },
-            { title: 'Payroll Giving', href: '/payroll-giving' },
-          ]
-        },
-        { title: 'School Partnership', href: '/school-partnership' },
-        { title: 'Volunteers & Internship', href: '/volunteers-and-internship' },
-        { title: 'Work With Us', href: '/work-with-us' },
-      ]
-    },
-    { title: 'MEDIA CENTRE' },
-    { title: 'RESOURCE CENTER' },
+    // {
+    //   title: 'GET INVOLVED',
+    //   items: [
+    //     { title: 'Individual Support', href: '/individual-support' },
+    //     {
+    //       title: 'Corporate Partnership',
+    //       href: '#',
+    //       items: [
+    //         { title: 'Corporate Social Responsibility', href: '/corporate-social-responsibility' },
+    //         { title: 'Cause Marketing & Events', href: '/cause-marketing-and-events' },
+    //         { title: 'Employee Engagement', href: '/employee-engagement' },
+    //         { title: 'Payroll Giving', href: '/payroll-giving' },
+    //       ]
+    //     },
+    //     { title: 'School Partnership', href: '/school-partnership' },
+    //     { title: 'Volunteers & Internship', href: '/volunteers-and-internship' },
+    //     { title: 'Work With Us', href: '/work-with-us' },
+    //   ]
+    // },
+    // { title: 'MEDIA CENTRE' },
+    // { title: 'RESOURCE CENTER' },
     {
       title: 'CONTACT US',
       items: [

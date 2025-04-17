@@ -1,14 +1,21 @@
-import React from "react";
-
+import React from 'react'
+import { Link } from 'react-router-dom'
 const Impact = () => {
   return (
-    <div className="w-full">
+    <div className='w-full'>
       {/* Introduction Section */}
-      <div className="text-center max-w-6xl mx-auto mb-10 raleway-400 tracking-normal py-[60px]">
-        <p className="text-lg text-gray-600" id="about-us">
-        We, Sanvi Mahila Jan Seva Sansthan, situated at Gomti Nagar, Lucknow, Uttar Pradesh are one of the leading firm in the country, set up to cater to the growing requirements of in all sectors. We have strengthened the business of the customers through proactive product development, timely delivery and superior product attributes by reinforcing innovation, cost leadership and premium quality.
+      <div className='text-center max-w-6xl mx-auto mb-10 raleway-400 tracking-normal py-[60px]'>
+        <p className='text-lg text-gray-600' id='about-us'>
+          We, Sanvi Mahila Jan Seva Sansthan, situated at Gomti Nagar, Lucknow,
+          Uttar Pradesh are one of the leading firm in the country, set up to
+          cater to the growing requirements of in all sectors. We have
+          strengthened the business of the customers through proactive product
+          development, timely delivery and superior product attributes by
+          reinforcing innovation, cost leadership and premium quality.
         </p>
-        <a href="#" className="text-[#abc73f] text-lg">read more &gt;</a>
+        <Link to='/about-us' className='text-[#abc73f] text-lg'>
+          read more &gt;
+        </Link>
       </div>
 
       {/* Full-Width Impact Section (Hidden in Mobile View) */}
@@ -40,7 +47,7 @@ const Impact = () => {
         </div>
       </div> */}
     </div>
-  );
-};
+  )
+}
 
-export default Impact;
+export default Impact
