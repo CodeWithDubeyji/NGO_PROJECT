@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import {React, useState, useEffect } from 'react'
 import { ChevronDown, X, Search, Menu } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
@@ -14,30 +14,42 @@ const scrollToId = id => {
 const NavItem = ({ title, items }) => {
   const [isOpen, setIsOpen] = useState(false)
 
-  const renderLink = item =>
-    item.href.startsWith('#') ? (
-      <a
-        href={item.href}
-        onClick={e => {
-          e.preventDefault()
-          if (!scrollToId(item.href)) {
-            // If element not found or not on current page, use regular navigation
-            window.location.href = item.href
-          }
-        }}
-        className='block px-4 py-2 text-sm text-gray-600 hover:bg-gray-100'
-      >
-        {item.title}
-      </a>
-    ) : (
-      <Link
-        to={item.href}
-        target={item.target}
-        className='block px-4 py-2 text-sm text-gray-600 hover:bg-gray-100'
-      >
-        {item.title}
-      </Link>
-    )
+  const renderLink = item => {
+    if (item.href.startsWith('#')) {
+      return (
+        <a
+          href={item.href}
+          onClick={e => {
+            e.preventDefault()
+            // Check if we're already on the homepage
+            const isHomePage = window.location.pathname === '/'
+
+            if (isHomePage) {
+              // If on homepage, just scroll to the element
+              scrollToId(item.href)
+            } else {
+              // If not on homepage, navigate to homepage with the hash
+              // This is the key fix - we're maintaining the hash in the URL
+              window.location.href = '/' + item.href
+            }
+          }}
+          className='block px-4 py-2 text-sm text-gray-600 hover:bg-gray-100'
+        >
+          {item.title}
+        </a>
+      )
+    } else {
+      return (
+        <Link
+          to={item.href}
+          target={item.target}
+          className='block px-4 py-2 text-sm text-gray-600 hover:bg-gray-100'
+        >
+          {item.title}
+        </Link>
+      )
+    }
+  }
 
   return (
     <div
@@ -81,30 +93,43 @@ const NavItem = ({ title, items }) => {
 const MobileNavItem = ({ title, items, onClose }) => {
   const [isOpen, setIsOpen] = useState(false)
 
-  const renderMobileLink = item =>
-    item.href.startsWith('#') ? (
-      <a
-        href={item.href}
-        onClick={e => {
-          e.preventDefault()
-          if (!scrollToId(item.href)) {
-            window.location.href = item.href
-          }
-          onClose && onClose() // Close mobile menu after navigation
-        }}
-        className='block py-2 text-sm text-gray-600 hover:text-gray-900'
-      >
-        {item.title}
-      </a>
-    ) : (
-      <Link
-        to={item.href}
-        target={item.target}
-        className='block py-2 text-sm text-gray-600 hover:text-gray-900'
-      >
-        {item.title}
-      </Link>
-    )
+  const renderMobileLink = item => {
+    if (item.href.startsWith('#')) {
+      return (
+        <a
+          href={item.href}
+          onClick={e => {
+            e.preventDefault()
+            // Check if we're already on the homepage
+            const isHomePage = window.location.pathname === '/'
+
+            if (isHomePage) {
+              // If on homepage, just scroll to the element
+              scrollToId(item.href)
+            } else {
+              // If not on homepage, navigate to homepage with the hash
+              window.location.href = '/' + item.href
+            }
+            onClose && onClose() // Close mobile menu after navigation
+          }}
+          className='block py-2 text-sm text-gray-600 hover:text-gray-900'
+        >
+          {item.title}
+        </a>
+      )
+    } else {
+      return (
+        <Link
+          to={item.href}
+          target={item.target}
+          onClick={() => onClose && onClose()}
+          className='block py-2 text-sm text-gray-600 hover:text-gray-900'
+        >
+          {item.title}
+        </Link>
+      )
+    }
+  }
 
   return (
     <div className='border-b border-gray-200'>
@@ -142,30 +167,43 @@ const MobileNavItem = ({ title, items, onClose }) => {
 const MobileSubItem = ({ item, onClose }) => {
   const [isSubOpen, setIsSubOpen] = useState(false)
 
-  const renderMobileLink = subItem =>
-    subItem.href.startsWith('#') ? (
-      <a
-        href={subItem.href}
-        onClick={e => {
-          e.preventDefault()
-          if (!scrollToId(subItem.href)) {
-            window.location.href = subItem.href
-          }
-          onClose && onClose() // Close mobile menu after navigation
-        }}
-        className='block py-2 text-sm text-gray-600 hover:text-gray-900'
-      >
-        {subItem.title}
-      </a>
-    ) : (
-      <Link
-        to={subItem.href}
-        target={subItem.target}
-        className='block py-2 text-sm text-gray-600 hover:text-gray-900'
-      >
-        {subItem.title}
-      </Link>
-    )
+  const renderMobileLink = subItem => {
+    if (subItem.href.startsWith('#')) {
+      return (
+        <a
+          href={subItem.href}
+          onClick={e => {
+            e.preventDefault()
+            // Check if we're already on the homepage
+            const isHomePage = window.location.pathname === '/'
+            
+            if (isHomePage) {
+              // If on homepage, just scroll to the element
+              scrollToId(subItem.href)
+            } else {
+              // If not on homepage, navigate to homepage with the hash
+              window.location.href = '/' + subItem.href
+            }
+            onClose && onClose() // Close mobile menu after navigation
+          }}
+          className='block py-2 text-sm text-gray-600 hover:text-gray-900'
+        >
+          {subItem.title}
+        </a>
+      )
+    } else {
+      return (
+        <Link
+          to={subItem.href}
+          target={subItem.target}
+          onClick={() => onClose && onClose()}
+          className='block py-2 text-sm text-gray-600 hover:text-gray-900'
+        >
+          {subItem.title}
+        </Link>
+      )
+    }
+  }
 
   return (
     <div className='py-1'>
@@ -200,7 +238,7 @@ const MobileMenu = ({ isOpen, onClose, navItems }) => {
       <div className='fixed inset-0 bg-black/50' onClick={onClose} />
       <div className='fixed right-0 top-0 h-full w-[300px] bg-white p-6 shadow-xl overflow-y-auto'>
         <div className='mb-8 flex items-center justify-between'>
-          <img src={`logo.webp`} alt='Logo' className='h-8 w-auto' />
+          <img src={`/logo.webp`} alt='Logo' className='h-8 w-auto' />
           <button onClick={onClose} className='text-gray-500'>
             <X className='h-6 w-6' />
           </button>
@@ -213,108 +251,28 @@ const MobileMenu = ({ isOpen, onClose, navItems }) => {
   )
 }
 
-export default function Navbar () {
+export default function Navbar() {
   const [isSearchOpen, setIsSearchOpen] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+
+  // Add a useEffect to handle initial scroll when page loads with a hash
+  useEffect(() => {
+    // Check if there's a hash in the URL when the component mounts
+    if (window.location.hash) {
+      // Try to scroll to the element with that ID
+      setTimeout(() => {
+        scrollToId(window.location.hash);
+      }, 500); // Small delay to ensure the DOM is fully loaded
+    }
+  }, []);
 
   const navItems = [
     {
       title: 'ABOUT US',
       items: [
         { title: 'About Us', href: '/about-us' }
-        // {
-        //   title: 'People Behind Smile',
-        //   href: '#',
-        //   items: [
-        //     { title: 'Leadership', href: '#' },
-        //     { title: 'Mentors', href: '#' },
-        //     { title: 'Our People', href: '#' }
-        //   ]
-        // },
-        // { title: 'Impact', href: '/impact' },
-        // { title: 'Reach & Presence', href: '/reach-presence' },
-        // { title: 'Civic Driven Changes', href: '/civic-driven-changes' },
-        // { title: 'Smilestones', href: '/smilestones' },
-        // { title: 'Good Governance', href: '/good-governance' }
       ]
     },
-    // {
-    //   title: 'OUR WORK',
-    //   items: [
-    //     { title: 'Education', href: '/education' },
-    //     { title: 'Healthcare', href: '/healthcare' },
-    //     { title: 'Livelihood', href: '/livelihood' },
-    //     { title: 'Women Empowerment', href: '/women-empowerment' },
-    //     { title: 'Disaster Response', href: '/disaster-response' },
-    //     {
-    //       title: 'Empowering Grassroots',
-    //       href: 'https://www.smilefoundationindia.org/ctgi/',
-    //       target: '_blank'
-    //     },
-    //     // {
-    //     //   title: 'Privileged Children',
-    //     //   href: '#',
-    //     //   items: [
-    //     //     { title: 'Child For Child', href: '/child-for-child' },
-    //     //     { title: 'Sciffy', href: 'https://siffcy.org/', target: '_blank' }
-    //     //   ]
-    //     // }
-    //   ]
-    // },
-    // {
-    //   title: 'CAMPAIGNS',
-    //   items: [
-    //     {
-    //       title: 'Siksha Na Ruke',
-    //       href: 'https://donate.smilefoundationindia.org/donate-for-education/',
-    //       target: '_blank'
-    //     },
-    //     {
-    //       title: 'Health Cannot Wait',
-    //       href: 'https://donate.smilefoundationindia.org/donate-for-healthcare/',
-    //       target: '_blank'
-    //     },
-    //     {
-    //       title: 'She Can Fly',
-    //       href: 'https://donate.smilefoundationindia.org/donate-for-girl-child',
-    //       target: '_blank'
-    //     },
-    //     {
-    //       title: 'Swabhiman',
-    //       href: 'https://donate.smilefoundationindia.org/women-empowerment/',
-    //       target: '_blank'
-    //     },
-    //     {
-    //       title: 'Tayaari Kal Ki',
-    //       href: 'https://donate.smilefoundationindia.org/donate-for-livelihood/',
-    //       target: '_blank'
-    //     },
-    //     {
-    //       title: 'Disaster Relief',
-    //       href: 'https://donate.smilefoundationindia.org/disaster-relief/',
-    //       target: '_blank'
-    //     }
-    //   ]
-    // },
-    // {
-    //   title: 'GET INVOLVED',
-    //   items: [
-    //     { title: 'Individual Support', href: '/individual-support' },
-    //     {
-    //       title: 'Corporate Partnership',
-    //       href: '#',
-    //       items: [
-    //         { title: 'Corporate Social Responsibility', href: '/corporate-social-responsibility' },
-    //         { title: 'Cause Marketing & Events', href: '/cause-marketing-and-events' },
-    //         { title: 'Employee Engagement', href: '/employee-engagement' },
-    //         { title: 'Payroll Giving', href: '/payroll-giving' },
-    //       ]
-    //     },
-    //     { title: 'School Partnership', href: '/school-partnership' },
-    //     { title: 'Volunteers & Internship', href: '/volunteers-and-internship' },
-    //     { title: 'Work With Us', href: '/work-with-us' },
-    //   ]
-    // },
     {
       title: 'SERVICES',
       items: [{ title: 'Services', href: '#services' }]
@@ -339,7 +297,6 @@ export default function Navbar () {
       title: 'CONTACT US',
       items: [
         { title: 'Get In Touch', href: '/contact-us' }
-        // { title: 'Faq', href: '/faq' }
       ]
     }
   ]
@@ -370,14 +327,34 @@ export default function Navbar () {
             >
               <Search className='h-5 w-5' />
             </button>
-            <button className='rounded-md bg-[#8DC63F] px-6 py-2 text-sm font-medium text-white hover:bg-[#7ab32f] whitespace-nowrap min-w-max'>
+            <a 
+              href="#support-a-cause" 
+              onClick={(e) => {
+                e.preventDefault();
+                if (window.location.pathname === '/') {
+                  scrollToId('#support-a-cause');
+                } else {
+                  window.location.href = '/#support-a-cause';
+                }
+              }}
+              className='rounded-md bg-[#8DC63F] px-6 py-2 text-sm font-medium text-white hover:bg-[#7ab32f] whitespace-nowrap min-w-max'
+            >
               SUPPORT A CAUSE
-            </button>
+            </a>
           </div>
 
           {/* Mobile Navigation */}
           <div className='flex items-center lg:hidden'>
-            <button className='rounded-full bg-[#8DC63F] px-4 py-2 text-sm font-medium text-white hover:bg-[#7ab32f] mr-2'>
+            <button 
+              onClick={() => {
+                if (window.location.pathname === '/') {
+                  scrollToId('#support-a-cause');
+                } else {
+                  window.location.href = '/#support-a-cause';
+                }
+              }}
+              className='rounded-full bg-[#8DC63F] px-4 py-2 text-sm font-medium text-white hover:bg-[#7ab32f] mr-2'
+            >
               DONATE
             </button>
             <button
