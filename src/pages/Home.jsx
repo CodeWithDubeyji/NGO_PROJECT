@@ -5,6 +5,7 @@ import AchievementGoals from "../components/Home/AchievementGoals"
 import Stories from "../components/Home/Stories"
 import SupportACause from "../components/Home/SupportACause"
 import Partners from "../components/Home/Partners"
+import Testimonials from "../components/Home/Testimonials"
 import Awards from "../components/Home/Awards"
 import EmpanelmentAndAccreditations from "../components/Home/EmpanelmentAndAccreditations"
 
@@ -14,10 +15,11 @@ const Home = () => {
       <HeroCarousel />
       <Impact />
       <OurProgammes />
-      <AchievementGoals />
+      {/* <AchievementGoals /> */}
       <Stories />
       <SupportACause />
       <Partners /> 
+      <Testimonials />
       {/* <Awards />
       <EmpanelmentAndAccreditations /> */}
     </div>

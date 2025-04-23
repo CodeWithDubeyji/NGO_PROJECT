@@ -33,7 +33,7 @@ const programmes = [
 
 const OurProgrammes = () => {
   return (
-    <div className='py-[60px] bebas-neue-regular w-full px-4 md:px-6'>
+    <div className='py-[60px] bebas-neue-regular w-full px-4 md:px-6' id='services'>
       <div className='max-w-6xl mx-auto px-4 md:px-6'>
         <h2 className='text-[28px] md:text-[36px] lg:text-[42px] font-bold mb-2 bebas-neue-regular  text-center'>
           Our Services

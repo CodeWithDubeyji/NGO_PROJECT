@@ -30,7 +30,7 @@ const Marquee = () => {
   }, [])
 
   return (
-    <div className='text-center'>
+    <div className='text-center' id='gallery'>
       <h2 className='text-[28px] md:text-[36px] lg:text-[42px] font-bold mb-2 bebas-neue-regular'>
         Gallery
       </h2>

@@ -47,7 +47,7 @@ const stories = [
 
 const SupportACause = ({ heading }) => {
   return (
-    <div className='py-10 text-center'>
+    <div className='py-10 text-center' id='support-a-cause'>  
       <h2 className='text-[28px] md:text-[36px] lg:text-[42px] font-bold mb-2 bebas-neue-regular'>
         {heading || 'Support A Cause'}
       </h2>

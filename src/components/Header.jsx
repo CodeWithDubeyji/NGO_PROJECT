@@ -1,9 +1,43 @@
-import { useState, useEffect } from 'react'
-import { ChevronDown, Menu, Search, X } from 'lucide-react'
+import { useState } from 'react'
+import { ChevronDown, X, Search, Menu } from 'lucide-react'
 import { Link } from 'react-router-dom'
+
+const scrollToId = id => {
+  const el = document.querySelector(id)
+  if (el) {
+    el.scrollIntoView({ behavior: 'smooth' })
+    return true // Return true if we found the element
+  }
+  return false // Return false if the element wasn't found
+}
 
 const NavItem = ({ title, items }) => {
   const [isOpen, setIsOpen] = useState(false)
+
+  const renderLink = item =>
+    item.href.startsWith('#') ? (
+      <a
+        href={item.href}
+        onClick={e => {
+          e.preventDefault()
+          if (!scrollToId(item.href)) {
+            // If element not found or not on current page, use regular navigation
+            window.location.href = item.href
+          }
+        }}
+        className='block px-4 py-2 text-sm text-gray-600 hover:bg-gray-100'
+      >
+        {item.title}
+      </a>
+    ) : (
+      <Link
+        to={item.href}
+        target={item.target}
+        className='block px-4 py-2 text-sm text-gray-600 hover:bg-gray-100'
+      >
+        {item.title}
+      </Link>
+    )
 
   return (
     <div
@@ -28,25 +62,12 @@ const NavItem = ({ title, items }) => {
                   </button>
                   <div className='absolute left-full top-0 hidden w-[200px] rounded-md bg-white p-2 shadow-lg group-hover:block'>
                     {item.items.map((subItem, subIndex) => (
-                      <Link
-                        key={subIndex}
-                        to={subItem.href}
-                        target={subItem.target}
-                        className='block px-4 py-2 text-sm text-gray-600 hover:bg-gray-100'
-                      >
-                        {subItem.title}
-                      </Link>
+                      <div key={subIndex}>{renderLink(subItem)}</div>
                     ))}
                   </div>
                 </>
               ) : (
-                <Link
-                  to={item.href}
-                  className='block px-4 py-2 text-sm text-gray-600 hover:bg-gray-100'
-                  target={item.target}
-                >
-                  {item.title}
-                </Link>
+                renderLink(item)
               )}
             </div>
           ))}
@@ -57,8 +78,33 @@ const NavItem = ({ title, items }) => {
 }
 
 // Updated MobileNavItem component to handle nested items
-const MobileNavItem = ({ title, items }) => {
+const MobileNavItem = ({ title, items, onClose }) => {
   const [isOpen, setIsOpen] = useState(false)
+
+  const renderMobileLink = item =>
+    item.href.startsWith('#') ? (
+      <a
+        href={item.href}
+        onClick={e => {
+          e.preventDefault()
+          if (!scrollToId(item.href)) {
+            window.location.href = item.href
+          }
+          onClose && onClose() // Close mobile menu after navigation
+        }}
+        className='block py-2 text-sm text-gray-600 hover:text-gray-900'
+      >
+        {item.title}
+      </a>
+    ) : (
+      <Link
+        to={item.href}
+        target={item.target}
+        className='block py-2 text-sm text-gray-600 hover:text-gray-900'
+      >
+        {item.title}
+      </Link>
+    )
 
   return (
     <div className='border-b border-gray-200'>
@@ -80,15 +126,9 @@ const MobileNavItem = ({ title, items }) => {
           {items.map((item, index) => (
             <div key={index} className='mb-2'>
               {item.items ? (
-                <MobileSubItem item={item} />
+                <MobileSubItem item={item} onClose={onClose} />
               ) : (
-                <Link
-                  to={item.href}
-                  target={item.target}
-                  className='block py-2 text-sm text-gray-600 hover:text-gray-900'
-                >
-                  {item.title}
-                </Link>
+                renderMobileLink(item)
               )}
             </div>
           ))}
@@ -99,8 +139,33 @@ const MobileNavItem = ({ title, items }) => {
 }
 
 // New component for handling nested mobile sub-items
-const MobileSubItem = ({ item }) => {
+const MobileSubItem = ({ item, onClose }) => {
   const [isSubOpen, setIsSubOpen] = useState(false)
+
+  const renderMobileLink = subItem =>
+    subItem.href.startsWith('#') ? (
+      <a
+        href={subItem.href}
+        onClick={e => {
+          e.preventDefault()
+          if (!scrollToId(subItem.href)) {
+            window.location.href = subItem.href
+          }
+          onClose && onClose() // Close mobile menu after navigation
+        }}
+        className='block py-2 text-sm text-gray-600 hover:text-gray-900'
+      >
+        {subItem.title}
+      </a>
+    ) : (
+      <Link
+        to={subItem.href}
+        target={subItem.target}
+        className='block py-2 text-sm text-gray-600 hover:text-gray-900'
+      >
+        {subItem.title}
+      </Link>
+    )
 
   return (
     <div className='py-1'>
@@ -119,14 +184,7 @@ const MobileSubItem = ({ item }) => {
       {isSubOpen && (
         <div className='pl-4 mt-1 border-l-2 border-gray-200'>
           {item.items.map((subItem, subIndex) => (
-            <Link
-              key={subIndex}
-              to={subItem.href}
-              target={subItem.target}
-              className='block py-2 text-sm text-gray-600 hover:text-gray-900'
-            >
-              {subItem.title}
-            </Link>
+            <div key={subIndex}>{renderMobileLink(subItem)}</div>
           ))}
         </div>
       )}
@@ -148,7 +206,7 @@ const MobileMenu = ({ isOpen, onClose, navItems }) => {
           </button>
         </div>
         {navItems.map((item, index) => (
-          <MobileNavItem key={index} {...item} />
+          <MobileNavItem key={index} {...item} onClose={onClose} />
         ))}
       </div>
     </div>
@@ -163,7 +221,7 @@ export default function Navbar () {
     {
       title: 'ABOUT US',
       items: [
-        { title: 'About Us', href: '/about-us' },
+        { title: 'About Us', href: '/about-us' }
         // {
         //   title: 'People Behind Smile',
         //   href: '#',
@@ -257,12 +315,30 @@ export default function Navbar () {
     //     { title: 'Work With Us', href: '/work-with-us' },
     //   ]
     // },
-    // { title: 'MEDIA CENTRE' },
-    // { title: 'RESOURCE CENTER' },
+    {
+      title: 'SERVICES',
+      items: [{ title: 'Services', href: '#services' }]
+    },
+    {
+      title: 'STORIES',
+      items: [{ title: 'Stories', href: '#stories' }]
+    },
+    {
+      title: 'SUPPORT A CAUSE',
+      items: [{ title: 'Support a cause', href: '#support-a-cause' }]
+    },
+    {
+      title: 'GALLERY',
+      items: [{ title: 'Gallery', href: '#gallery' }]
+    },
+    {
+      title: 'TESTIMONIALS',
+      items: [{ title: 'Testimonials', href: '#testimonials' }]
+    },
     {
       title: 'CONTACT US',
       items: [
-        { title: 'Get In Touch', href: '/contact-us' },
+        { title: 'Get In Touch', href: '/contact-us' }
         // { title: 'Faq', href: '/faq' }
       ]
     }

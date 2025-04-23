@@ -50,7 +50,7 @@ const Stories = () => {
   const closeModal = () => setSelectedVideo(null)
 
   return (
-    <div className='py-10 text-center'>
+    <div className='py-10 text-center' id='stories'>
       <h2 className='text-[28px] md:text-[36px] lg:text-[42px] font-bold mb-10 bebas-neue-regular'>
         STORIES IN MOTION
       </h2>
