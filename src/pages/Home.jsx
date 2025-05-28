@@ -15,7 +15,7 @@ const Home = () => {
       <HeroCarousel />
       <Impact />
       <OurProgammes />
-      {/* <AchievementGoals /> */}
+      <AchievementGoals />
       <Stories />
       <SupportACause />
       <Partners /> 

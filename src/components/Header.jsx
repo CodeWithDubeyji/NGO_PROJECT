@@ -278,6 +278,10 @@ export default function Navbar() {
       items: [{ title: 'Services', href: '#services' }]
     },
     {
+      title: 'ACHIEVEMENTS',
+      items: [{ title: 'Achievements', href: '#achievements' }]
+    },
+    {
       title: 'STORIES',
       items: [{ title: 'Stories', href: '#stories' }]
     },
